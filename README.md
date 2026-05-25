@@ -29,7 +29,7 @@ A second placeholder build exists only to exercise the multi-card layout. New bu
 - React 18 + React Router 6
 - Vite 5
 - Tailwind 3
-- No backend. No accounts. No tracking. State lives in `localStorage`.
+- No backend. No accounts. No tracking. State lives in `localStorage`..
 
 ## Running locally
 
