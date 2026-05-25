@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(201, 169, 110, 0.06), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(201, 169, 110, 0.04), transparent 60%),
+    #0b0b0e;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom checkbox: gold accent, satisfying tick */
+input[type='checkbox'].chk {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid #3a3a44;
+  border-radius: 4px;
+  background: #15151a;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+input[type='checkbox'].chk:hover {
+  border-color: #c9a96e;
+}
+
+input[type='checkbox'].chk:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.45);
+  border-color: #c9a96e;
+}
+
+input[type='checkbox'].chk:checked {
+  background: #c9a96e;
+  border-color: #c9a96e;
+}
+
+input[type='checkbox'].chk:checked::after {
+  content: '';
+  width: 0.35rem;
+  height: 0.65rem;
+  border: solid #15151a;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+/* Anchor-link offset so sticky header doesn't cover section headings */
+.anchor {
+  scroll-margin-top: 5rem;
+}
+
+/* Tasteful scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a32;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a44;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
