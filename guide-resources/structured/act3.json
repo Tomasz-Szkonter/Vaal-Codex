@@ -1,0 +1,279 @@
+{
+  "act": 3,
+  "code": "act-3",
+  "title": "Act III — Sandswept to Ziggurat",
+  "patch": "0.5",
+  "levelRange": "30-42",
+  "source": "https://domistae.github.io/poe2-leveling/poe2_act3_guide.html",
+  "fetched": "2026-05-25",
+  "permanentRewards": [
+    "+4 Weapon Set Skill Points",
+    "+10% Fire Resistance",
+    "+30 Spirit",
+    "Reforging Bench (1st char)",
+    "Second Ascendancy",
+    "Permanent Servi choice"
+  ],
+  "routingNotes": [
+    "Servi's choice is permanent — most builds pick Stun Threshold (logout cures bleeds/freeze).",
+    "Field vendors give guaranteed rares — Jungle (gloves), Infested (boots), Chimeral (helm).",
+    "Servi's Son in Jungle = guaranteed rare belt.",
+    "Trial of Chaos: soul core dodge-skip duplicates the core into all sockets.",
+    "Sacrificial Heart drops from Vaal Goliaths (canister on shoulder) in Utzaal & Aggorat.",
+    "0.5: monster density reduced in back half of campaign — lean on margin-of-safety rule (3 levels under area)."
+  ],
+  "speedrunTips": [
+    "Don't study layouts — GGG (Sunna) said too much is reworked in 0.5.",
+    "Use a vendor regex to highlight wanted bases.",
+    "Menu hotkeys: Ctrl on passive tree auto-confirms. Quick Assign for attributes. Ctrl+Shift+L/R-click for weapon swap.",
+    "Magic packs only while pushing."
+  ],
+  "patch05Notes": "Patch 0.5 rearranged Act 3's area order. Use the zone list as source of truth; expect minor reordering.",
+  "zones": [
+    {
+      "id": "sandswept",
+      "name": "Sandswept Marsh",
+      "level": "30",
+      "tags": [],
+      "steps": [
+        { "text": "Talk to The Hooded One" },
+        { "text": "Kill Rootdredge", "reward": "Skill Gem Lv9", "icon": "boss", "optional": true },
+        { "text": "Basket at Orok Campsite", "reward": "Lesser Jeweller's Orb", "icon": "loot", "optional": true },
+        { "text": "Hanging tree corpse", "reward": "Magic Ring", "icon": "loot", "optional": true },
+        { "text": "Lvl 33 Ring point of interest", "reward": "High-tier flat damage roll", "icon": "loot", "optional": true },
+        { "text": "Enter Ziggurat Encampment", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "ziggurat",
+      "name": "Ziggurat Encampment",
+      "level": "30",
+      "tags": ["town"],
+      "steps": [
+        { "text": "Talk Alva, Oswald, The Hooded One" },
+        { "text": "Talk to Farrow → accept Quest 3", "reward": "Unlocks Unique Verisium Runeforging", "icon": "vendor", "newIn05": true, "note": "Upgrade Unique Weapons/Armours dropping below level 55 into endgame-viable bases." },
+        { "text": "Lvl 30 flask upgrade at Rog (increased recovery + charges)", "icon": "vendor" },
+        { "text": "Enter Jungle Ruins (top exit)", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "jungle-ruins",
+      "name": "Jungle Ruins",
+      "level": "30-31",
+      "tags": ["waypoint", "skill-points"],
+      "newIn05": "Explorer camps are no longer just vendors. Talk to explorers — they point to the next area and reveal it on the minimap.",
+      "steps": [
+        { "text": "Kill Mighty Silverfist", "reward": "+2 Skill Points", "icon": "boss", "note": "Dodge slam SIDEWAYS (not backwards) — wave travels in attack direction." },
+        { "text": "Jungle Grave (ravaged corpse) → Servi gives Rare Belt (choice)", "icon": "loot" },
+        { "text": "Field vendor", "reward": "Guaranteed Rare Gloves", "icon": "vendor", "optional": true },
+        { "text": "Find WP near Venom Crypts" },
+        { "text": "Enter Infested Barrens", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "infested-barrens",
+      "name": "Infested Barrens",
+      "level": "31-32",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Find/talk Alva, take WP near her" },
+        { "text": "Field vendor", "reward": "Guaranteed Rare Boots", "icon": "vendor", "optional": true },
+        { "text": "Enter Chimeral Wetlands → take WP → return" },
+        { "text": "Enter Azak Bog → take WP → return" },
+        { "text": "TP to Venom Crypts (via Jungle Ruins WP)" }
+      ]
+    },
+    {
+      "id": "venom-crypts",
+      "name": "The Venom Crypts",
+      "level": "31",
+      "tags": ["warning"],
+      "steps": [
+        { "text": "Sarcophagus event", "reward": "Guaranteed Lv3 Support", "icon": "loot", "optional": true },
+        { "text": "Find corpse → loot Corpse-snake Venom", "icon": "loot" },
+        { "text": "TP back to town" },
+        { "text": "Talk to Servi — PERMANENT CHOICE: +25% Stun Threshold (popular) / +30% Ailment Threshold / +25% Mana Regen", "icon": "warning" },
+        { "text": "TP to Chimeral Wetlands" }
+      ]
+    },
+    {
+      "id": "chimeral-wetlands",
+      "name": "Chimeral Wetlands",
+      "level": "32-33",
+      "tags": ["waypoint", "ascendancy"],
+      "steps": [
+        { "text": "Field vendor", "reward": "Guaranteed Rare Helm", "icon": "vendor", "optional": true },
+        { "text": "Toxic Bloom point of interest", "reward": "Amulet", "icon": "loot", "optional": true },
+        { "text": "League mech", "reward": "Skill Gem Lv9", "optional": true },
+        { "text": "Enter Temple of Chaos → take WP → return (for 2nd Ascendancy)", "icon": "ascendancy" },
+        { "text": "Kill Xyclucian, the Chimera → loot Inscribed Ultimatum", "icon": "boss" },
+        { "text": "Enter Jiquani's Machinarium behind boss", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "trial-of-chaos",
+      "name": "Trial of Chaos",
+      "level": "33+",
+      "tags": ["ascendancy"],
+      "steps": [
+        { "text": "Use Inscribed Ultimatum at trial entrance" },
+        { "text": "Pick favorable mods (avoid lightning runes if low Lightning Res)" },
+        { "text": "Soul Core skip: dodge roll between slam & twist of placement animation — duplicates core into all sockets" },
+        { "text": "Complete trial → 2nd Ascendancy", "icon": "ascendancy" }
+      ]
+    },
+    {
+      "id": "machinarium",
+      "name": "Jiquani's Machinarium",
+      "level": "33",
+      "tags": ["fire-reward"],
+      "steps": [
+        { "text": "Layout = squared U-shape, generators at opposite tips" },
+        { "text": "Summon/talk Alva" },
+        { "text": "Loot Small Soul Core → use on Stone Altar next to Alva", "icon": "loot" },
+        { "text": "Loot 3 Small Soul Cores to open doors" },
+        { "text": "Open door → kill Blackjaw → use Flame Core", "reward": "+10% Fire Res", "icon": "boss" },
+        { "text": "Open another door → enter Jiquani's Sanctum", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "sanctum",
+      "name": "Jiquani's Sanctum",
+      "level": "33-34",
+      "tags": [],
+      "steps": [
+        { "text": "Summon/talk Alva" },
+        { "text": "Loot 2 Medium Soul Cores, place in Generators" },
+        { "text": "Back to start → click Large Soul Core → kill Zicoatly → loot core", "icon": "boss" },
+        { "text": "TP to Infested Barrens" },
+        { "text": "Use core on Stone Altar next to WP" },
+        { "text": "Enter The Matlan Waterways", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "matlan",
+      "name": "The Matlan Waterways",
+      "level": "35",
+      "tags": [],
+      "newIn05": "Levers became walk-over pressure pads, and the final canal section ships pre-drained. The old portal-skip is no longer needed.",
+      "steps": [
+        { "text": "Hut → kill rare", "reward": "Random loot", "optional": true },
+        { "text": "Walk over pressure pads (6-8 per layout) — auto-activate on contact" },
+        { "text": "Proceed to end of zone — final section is now pre-drained" },
+        { "text": "TP back to town" }
+      ]
+    },
+    {
+      "id": "drowned-city",
+      "name": "The Drowned City",
+      "level": "35-36",
+      "tags": [],
+      "steps": [
+        { "text": "In town: Downstairs → talk Alva" },
+        { "text": "Enter The Drowned City (bottom exit)", "icon": "portal" },
+        { "text": "Find Apex of Filth → take WP → return" },
+        { "text": "Find The Molten Vault → take WP → return" },
+        { "text": "TP to Azak Bog" }
+      ]
+    },
+    {
+      "id": "azak-bog",
+      "name": "Azak Bog",
+      "level": "33-34",
+      "tags": ["waypoint", "spirit-reward"],
+      "steps": [
+        { "text": "Summon/talk Servi" },
+        { "text": "Flameskin rituals", "reward": "Fire Res + Rarity buff", "optional": true },
+        { "text": "Kill Ignagduk, the Bog Witch → use Gemrot Skull", "reward": "+30 Spirit", "icon": "boss", "note": "Boss arena top-right; rotation depends on entrance side." },
+        { "text": "Talk Servi in town for Frozen Charm" },
+        { "text": "TP to Molten Vault (1st char) or town" }
+      ]
+    },
+    {
+      "id": "molten-vault",
+      "name": "The Molten Vault",
+      "level": "36",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Kill Mektul, the Forgemaster", "reward": "Reforging Bench", "icon": "boss", "firstChar": true, "note": "Return Hammer of Kamasa to Oswald in town to unlock the bench. Skip on alt characters." },
+        { "text": "TP back to town" },
+        { "text": "Talk to Oswald" },
+        { "text": "TP to Apex of Filth" }
+      ]
+    },
+    {
+      "id": "apex-of-filth",
+      "name": "Apex of Filth",
+      "level": "36-37",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Find 3 Mushrooms → use Cauldron", "reward": "Superior Flasks", "optional": true },
+        { "text": "Pass through bottleneck-with-checkpoint, then check back corners" },
+        { "text": "Kill Queen of Filth → loot Temple Door Idol", "icon": "boss", "note": "Stay close — moving away triggers ultimate rolling slam." },
+        { "text": "TP back to town" }
+      ]
+    },
+    {
+      "id": "temple-kopec",
+      "name": "Temple of Kopec",
+      "level": "37",
+      "tags": [],
+      "steps": [
+        { "text": "In town: Downstairs → talk Alva → door behind her → enter Temple of Kopec", "icon": "portal" },
+        { "text": "Each floor is a triangle — far corner has 50% chance of being correct. Always check it first" },
+        { "text": "Kill Ketzuli, High Priest of the Sun (upstairs)", "icon": "boss" },
+        { "text": "Talk Alva, wait for lore" }
+      ]
+    },
+    {
+      "id": "utzaal",
+      "name": "Utzaal",
+      "level": "38-39",
+      "tags": ["vaal-beacons"],
+      "newIn05": "Fate of the Vaal is now core campaign content. 6 beacons in Act 3 + 6 more in Interludes opens Vaal Ruins portal.",
+      "steps": [
+        { "text": "In town: Take the Gateway → Downstairs → enter Utzaal", "icon": "portal" },
+        { "text": "Same layout as Drowned City. Follow the paved road — it leads to Viper" },
+        { "text": "Farm Sacrificial Heart from Vaal Goliaths (canister on shoulder)", "icon": "loot", "optional": true },
+        { "text": "Find & energise 6 Ancient Beacons across Utzaal & Aggorat → Energised Crystals", "icon": "loot" },
+        { "text": "Open portal to Vaal Ruins (Fate of the Vaal core mechanic)" },
+        { "text": "Side doors for idols (sell to Oswald for gold)", "icon": "loot", "optional": true },
+        { "text": "Kill Viper Napuatzi", "icon": "boss", "note": "Highly mobile + evasive — bait first attack cycle from consistent position." }
+      ]
+    },
+    {
+      "id": "aggorat",
+      "name": "Aggorat",
+      "level": "39-40",
+      "tags": ["skill-points"],
+      "steps": [
+        { "text": "Town crier chanting tells you the right direction. Edge of pyramid = boss" },
+        { "text": "Find Sacrificial Altar (top right of map)" },
+        { "text": "Place Sacrificial Heart → stab with Dagger", "reward": "+2 Skill Points" },
+        { "text": "League mech (Crag Tooth)", "reward": "Vaal Orb", "optional": true },
+        { "text": "Enter The Black Chambers (top left of map)", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "black-chambers",
+      "name": "The Black Chambers",
+      "level": "40-42",
+      "tags": ["act-boss"],
+      "steps": [
+        { "text": "Kill Doryani, the Blood Alchemist (Act Boss)", "icon": "boss", "note": "Phase 2 (Doryani's Triumph): rage → fortifying buff before engaging." },
+        { "text": "Wait for loot (~30s)" },
+        { "text": "TP back to town" }
+      ]
+    },
+    {
+      "id": "act-end",
+      "name": "Ziggurat Encampment (End of Act)",
+      "level": "42",
+      "tags": ["town", "act-end"],
+      "steps": [
+        { "text": "Talk to Doryani" },
+        { "text": "Talk Doryani again → Alva → Hooded One → Alva" }
+      ]
+    }
+  ]
+}

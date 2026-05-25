@@ -1,0 +1,279 @@
+{
+  "act": 2,
+  "code": "act-2",
+  "title": "Act II — Vastiri to Dreadnought",
+  "patch": "0.5",
+  "levelRange": "14-29",
+  "source": "https://domistae.github.io/poe2-leveling/poe2_act2_guide.html",
+  "fetched": "2026-05-25",
+  "permanentRewards": [
+    "+4 Weapon Set Skill Points",
+    "+10% Lightning Resistance",
+    "Charm/Mana Recovery (choice)",
+    "First Ascendancy"
+  ],
+  "routingNotes": [
+    "Run Mastodon Badlands BEFORE Keth → Kabala drops Lvl 7 gem (huge for all classes).",
+    "Skip Balbala in Traitor's Passage — kill 2 vultures in Deshar for backup Djinn Barya at Lvl 28.",
+    "Ascend at Lvl 28 — manually pick the Lvl 28 Barya in trial entry, not the Lvl 22 default.",
+    "Trial preference: Ritual > Chalice > Hourglass > Gauntlet.",
+    "Aim Lvl 29 for Jamanra; Lvl 30 entering Act III."
+  ],
+  "speedrunTips": [
+    "Delay Ascension to Lvl 28. Farm a Djinn Barya from the Watchful Twins in Deshar.",
+    "Pick a leveling Ascendancy (Demon Form, Smith of Kitava, Sorcery Ward). Re-spec endgame.",
+    "Buy fewer times, more efficiently. Often no weapon upgrade until next act.",
+    "Use a leveling item filter with aggressive base highlighting."
+  ],
+  "zones": [
+    {
+      "id": "vastiri",
+      "name": "Vastiri Outskirts",
+      "level": "14-15",
+      "tags": [],
+      "steps": [
+        { "text": "Talk to The Hooded One" },
+        { "text": "Kill Rathbreaker", "icon": "boss" },
+        { "text": "TP back to start of zone" },
+        { "text": "Talk to Zarka" },
+        { "text": "Enter The Ardura Caravan", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "caravan",
+      "name": "The Ardura Caravan",
+      "level": "15",
+      "tags": ["town"],
+      "steps": [
+        { "text": "Talk to Hooded One + Sekhema Asala (x2)" },
+        { "text": "Talk to Farrow → accept Quest 2 (Runic Alloys)", "reward": "Unlocks 13 Runic Alloy currencies via Remnants", "icon": "vendor", "newIn05": true },
+        { "text": "Use Desert Map → travel to Halani Gates" },
+        { "text": "Enter Halani Gates → talk to Sekhema Asala" },
+        { "text": "Back to Caravan → talk to Sekhema Asala" },
+        { "text": "Travel to Mawdun Quarry" }
+      ]
+    },
+    {
+      "id": "mawdun-quarry",
+      "name": "Mawdun Quarry",
+      "level": "15",
+      "tags": [],
+      "steps": [
+        { "text": "Faridun War Cache near checkpoint", "reward": "Artificer's Orb", "icon": "loot", "optional": true },
+        { "text": "Enter Mawdun Mine (follow checkpoints)", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "mawdun-mine",
+      "name": "Mawdun Mine",
+      "level": "16",
+      "tags": [],
+      "steps": [
+        { "text": "Kill Rudja", "icon": "boss" },
+        { "text": "Talk to Risu in cage" },
+        { "text": "TP back to town" },
+        { "text": "In town: Talk to Risu + Sekhema Asala" },
+        { "text": "Travel to Traitor's Passage" }
+      ]
+    },
+    {
+      "id": "traitors-passage",
+      "name": "Traitor's Passage",
+      "level": "17",
+      "tags": [],
+      "newIn05": "You no longer need to visit Halani Gates to access Traitor's Passage once Risu is freed.",
+      "steps": [
+        { "text": "Interact with Ancient Seal door + Runic Seals" },
+        { "text": "Kill Balbala, the Traitor (skip - get Lvl 28 Barya from Deshar vultures instead)", "reward": "Djinn Barya", "icon": "boss", "optional": true, "note": "Most builds skip — better XP at Lvl 28 and easier fight." },
+        { "text": "Bell Chest in dead end", "reward": "Random loot", "icon": "loot", "optional": true },
+        { "text": "Enter The Halani Gates (stairs up)", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "halani-gates",
+      "name": "The Halani Gates",
+      "level": "18",
+      "tags": [],
+      "steps": [
+        { "text": "Summon Asala to open gates", "note": "If Asala lags on terra-cotta soldiers, reset checkpoint — she'll snap to you." },
+        { "text": "Kill Jamanra (first encounter)", "icon": "boss" },
+        { "text": "Stairs up, search checkpoint" },
+        { "text": "TP back to town" },
+        { "text": "In town: Talk to Shambrin, Zarka, Sekhema Asala" },
+        { "text": "Travel to Trial of Sekhemas → take WP (run later at Lvl 28)" },
+        { "text": "TP back → travel to Mastodon Badlands" }
+      ]
+    },
+    {
+      "id": "mastodon-badlands",
+      "name": "Mastodon Badlands",
+      "level": "19-20",
+      "tags": [],
+      "newIn05": "To find the Lightless Caverns abyssal, look for cracks in the ground → leads straight to the lair, unlocking the Well of Souls.",
+      "steps": [
+        { "text": "Run this BEFORE Keth — pushes Keth's level up so Kabala drops Lvl 7 gem", "icon": "audit" },
+        { "text": "Effigy near checkpoint", "reward": "Support Gem Lv2", "icon": "loot", "optional": true },
+        { "text": "League mech", "reward": "Regal Orb", "optional": true },
+        { "text": "Enter The Bone Pits", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "bone-pits",
+      "name": "The Bone Pits",
+      "level": "20-21",
+      "tags": [],
+      "steps": [
+        { "text": "Kill hyenas until Sun Clan Relic drops", "note": "Tall hyenas (Goliaths) have higher drop chance. Save for Valley of the Titans altar." },
+        { "text": "Kill Iktab & Ekbab → loot Mastodon Tusks", "icon": "boss" },
+        { "text": "TP back to town" },
+        { "text": "In town: Talk to Zarka" },
+        { "text": "Travel to Keth" }
+      ]
+    },
+    {
+      "id": "keth",
+      "name": "Keth",
+      "level": "22",
+      "tags": ["skill-points"],
+      "steps": [
+        { "text": "Kill snakes until Kabala Clan Relic drops" },
+        { "text": "League mech", "reward": "Gem Cutter's Prism", "optional": true },
+        { "text": "Kill Kabala, Constrictor Queen", "reward": "+2 Skill Points", "icon": "boss", "note": "Drops Lvl 7 skill gem because Mastodon was done first." },
+        { "text": "Enter The Lost City", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "lost-city",
+      "name": "The Lost City",
+      "level": "23",
+      "tags": [],
+      "steps": [
+        { "text": "Kill Ninth Treasure of Keth", "reward": "Random loot", "icon": "boss", "optional": true },
+        { "text": "Golden Tomb", "reward": "Spirit Gem Lv7", "icon": "gem", "optional": true },
+        { "text": "Enter Buried Shrines", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "buried-shrines",
+      "name": "Buried Shrines",
+      "level": "23",
+      "tags": [],
+      "steps": [
+        { "text": "Guarded sarcophagus", "reward": "Support Gem (Lesser Jeweller's Orb)", "icon": "loot", "optional": true },
+        { "text": "Choose Offering (fire/water/lightning)", "reward": "Resist Ring", "icon": "loot", "optional": true }
+      ]
+    },
+    {
+      "id": "heart-of-keth",
+      "name": "The Heart of Keth",
+      "level": "24",
+      "tags": [],
+      "steps": [
+        { "text": "Kill Azarian", "icon": "boss" },
+        { "text": "Talk Water Goddess → Everburning Cinders → ignite Goddess" },
+        { "text": "TP back to town" },
+        { "text": "In town: Talk to Zarka" },
+        { "text": "Travel to Valley of the Titans" }
+      ]
+    },
+    {
+      "id": "valley-of-titans",
+      "name": "Valley of the Titans",
+      "level": "25",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Find 3 Ancient Seals (perimeter)" },
+        { "text": "League mech", "reward": "Random Unique (Wake of Destruction, Black Heart, Goldrim, Crown of the Victor — or 1k gold floor)", "optional": true },
+        { "text": "Find Medallion near WP, place both relics", "reward": "Choose: +30% Charm Charges OR +15% Mana Recovery (changeable later)", "icon": "loot" },
+        { "text": "Enter The Titan Grotto", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "titan-grotto",
+      "name": "The Titan Grotto",
+      "level": "25-26",
+      "tags": [],
+      "steps": [
+        { "text": "Kill Zalmarath, the Colossus → loot Flame Ruby", "icon": "boss" },
+        { "text": "TP back to town" },
+        { "text": "In town: Talk to Zarka + Sekhema Asala" },
+        { "text": "Travel to Halani Gates (don't enter)" },
+        { "text": "Sound Horn at top of caravan" },
+        { "text": "Talk to Sekhema Asala" },
+        { "text": "Travel to Deshar" }
+      ]
+    },
+    {
+      "id": "deshar",
+      "name": "Deshar",
+      "level": "26-27",
+      "tags": ["skill-points"],
+      "steps": [
+        { "text": "Find/loot Fallen Dekhara near tower", "reward": "+2 Skill Points", "icon": "loot" },
+        { "text": "Letter from Lihl Lima → deliver to Shambrin in town" },
+        { "text": "Kill 2 Vultures on side area", "reward": "Backup Djinn Barya (Lvl 28)", "icon": "boss", "note": "Easy ascend path — much simpler than Balbala." },
+        { "text": "Side dead-end", "reward": "Artificer's Orb", "icon": "loot", "optional": true },
+        { "text": "Enter Path of Mourning", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "path-of-mourning",
+      "name": "Path of Mourning",
+      "level": "27",
+      "tags": [],
+      "steps": [
+        { "text": "Trust the overworld map for direction — exit is straightforward" },
+        { "text": "Shifting Vases encounter", "reward": "4 rares + Support Gem Lv2", "optional": true },
+        { "text": "Enter The Spires of Deshar", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "spires-of-deshar",
+      "name": "The Spires of Deshar",
+      "level": "27",
+      "tags": [],
+      "steps": [
+        { "text": "Interact with Sisters of Garukhan shrine", "reward": "+10% Lightning Res" },
+        { "text": "League mech", "reward": "Gem Cutter's Prism", "optional": true },
+        { "text": "Kill Tor Gul", "icon": "boss", "note": "One of the hardest fights in Act II — cap lightning res, watch defiler attacks." },
+        { "text": "TP back to town" },
+        { "text": "Ascend at Lvl 28", "icon": "ascendancy" }
+      ]
+    },
+    {
+      "id": "trial-of-sekhemas",
+      "name": "Trial of the Sekhemas",
+      "level": "28",
+      "tags": ["ascendancy", "waypoint"],
+      "newIn05": "A Reforging Bench is now placed at the Trial entrance (unlocks in Act 3 — Mektul/Hammer of Kamasa). Your max Runic Ward is added to your starting Honour when beginning a Trial.",
+      "steps": [
+        { "text": "Enter trial → manually select Lvl 28 Djinn Barya (NOT default Lvl 22!)", "icon": "warning" },
+        { "text": "Set relic affinity to keep inventory clean" },
+        { "text": "Prefer Ritual > Chalice > Hourglass > Gauntlet rooms" },
+        { "text": "Complete trial → ascend 1st Ascendancy", "icon": "ascendancy", "note": "Save white chest piece in stash if planning Smith of Kitava — ascendancy locks you out of magic/rare chests." }
+      ]
+    },
+    {
+      "id": "dreadnought",
+      "name": "The Dreadnought",
+      "level": "28-29",
+      "tags": ["act-boss"],
+      "newIn05": "The second dreadnought area was removed — Jamanra is now fought directly in The Dreadnought.",
+      "steps": [
+        { "text": "Travel to The Dreadnought" },
+        { "text": "Kill Jamanra, the Risen King (Act Boss)", "icon": "boss", "note": "Already starts armor-broken. ~55k phys damage = stuns him before lightning fence phase." },
+        { "text": "TP back to town" }
+      ]
+    },
+    {
+      "id": "act-end",
+      "name": "The Ardura Caravan (End of Act)",
+      "level": "29",
+      "tags": ["town", "act-end"],
+      "steps": [
+        { "text": "Exit caravan (top left) → talk Hooded One → wait animation" },
+        { "text": "Back → talk Sekhema Asala → \"Travel to the Sandswept Marsh\"" }
+      ]
+    }
+  ]
+}

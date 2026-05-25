@@ -5,11 +5,11 @@
 // as long as the upstream JSON step order doesn't change — if the source data
 // gets re-ordered, we'll need to bump aliases in buildResolver.js to compensate.
 
-import act1 from '../../../../guide-resources/structured/act1.json';
-import act2 from '../../../../guide-resources/structured/act2.json';
-import act3 from '../../../../guide-resources/structured/act3.json';
-import act4 from '../../../../guide-resources/structured/act4.json';
-import interludes from '../../../../guide-resources/structured/interludes.json';
+import act1 from '../../../guide-resources/structured/act1.json';
+import act2 from '../../../guide-resources/structured/act2.json';
+import act3 from '../../../guide-resources/structured/act3.json';
+import act4 from '../../../guide-resources/structured/act4.json';
+import interludes from '../../../guide-resources/structured/interludes.json';
 
 function makeIntro(file) {
   const rewards = Array.isArray(file.permanentRewards) ? file.permanentRewards : [];

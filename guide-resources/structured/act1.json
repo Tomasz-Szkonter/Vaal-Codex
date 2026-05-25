@@ -1,0 +1,208 @@
+{
+  "act": 1,
+  "code": "act-1",
+  "title": "Act I — Clearfell to Ogham",
+  "patch": "0.5",
+  "levelRange": "1-14",
+  "source": "https://domistae.github.io/poe2-leveling/poe2_act1_guide.html",
+  "fetched": "2026-05-25",
+  "permanentRewards": [
+    "+4 Weapon Set Skill Points",
+    "+10% Cold Resistance",
+    "+30 Spirit",
+    "+20 Maximum Life",
+    "Salvage Bench (1st char)"
+  ],
+  "routingNotes": [
+    "Cemetery: do Draven first, then Asinia (drops scale with zone level)",
+    "Hunting Grounds league mech = Exalted Orb",
+    "Cemetery league mech = Regal Orb (save for lvl 16 or 28 base)",
+    "Aim to be Lvl 14 entering Geonor fight"
+  ],
+  "speedrunTips": [
+    "Play with urgency. Minimize town time and never stop moving in a zone.",
+    "Focus magic packs (~3.5x XP vs whites). Skip whites unless under-leveled.",
+    "Don't mule. Push to Red Vale weapon racks — guaranteed tier-2 Martial weapon.",
+    "Ration regals/exalts. 1-2 regals per act, on weapon bases at modifier breakpoints.",
+    "Stay on XP curve: margin = 3 levels under area + 1 per 16 character levels."
+  ],
+  "zones": [
+    {
+      "id": "riverbank",
+      "name": "Riverbank",
+      "level": "1",
+      "tags": ["intro"],
+      "steps": [
+        { "text": "Talk to Wounded Man, equip starter weapon" },
+        { "text": "Loot Large Chests, equip items + skills", "icon": "loot" },
+        { "text": "Kill The Bloated Miller", "icon": "boss" },
+        { "text": "Enter Clearfell Encampment behind boss", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "clearfell-encampment",
+      "name": "Clearfell Encampment",
+      "level": "2",
+      "tags": ["town"],
+      "steps": [
+        { "text": "Talk to Renly", "reward": "Skill Gem Lv1", "icon": "gem" },
+        { "text": "Talk to Farrow → accept Quest 1", "reward": "Unlocks Verisium Runeforging (Runic Ward on armour)", "icon": "vendor", "newIn05": true, "note": "Farrow is the new league NPC. Quest unlocks Verisium Runeforging — spend Verisium to add Runic Ward, a regenerating defence layer absorbing damage at 1 life. Free on sub-55 bases." },
+        { "text": "Accept quest, enter Clearfell", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "clearfell",
+      "name": "Clearfell",
+      "level": "2-3",
+      "tags": [],
+      "steps": [
+        { "text": "Kill Beira of the Rotten Pack (north)", "reward": "+10% Cold Res", "icon": "boss" },
+        { "text": "Mud Burrow → The Devourer", "reward": "Skill Gem Lv2", "icon": "gem", "optional": true },
+        { "text": "Abandoned Stash", "reward": "Skill Gem Lv1", "icon": "loot", "optional": true },
+        { "text": "Enter The Grelwood", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "grelwood",
+      "name": "The Grelwood",
+      "level": "3-5",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Find/summon/talk Una" },
+        { "text": "Take waypoint" },
+        { "text": "Enter Grim Tangle → take WP → return" },
+        { "text": "Enter The Red Vale → take WP → return" },
+        { "text": "Kill Gerung, the Brambleghast", "reward": "Skill Gem Lv1", "icon": "boss", "optional": true },
+        { "text": "Hut with Cauldron (flask upgrade) → Areagne Support Gem", "icon": "gem", "optional": true, "note": "Areagne is the hardest early fight — frost bomb chills her, makes it manageable." },
+        { "text": "Enter The Red Vale", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "red-vale",
+      "name": "The Red Vale",
+      "level": "5-6",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Find 3 Obelisks of Rust, loot Runed Girdle each", "icon": "loot" },
+        { "text": "The Rust King spawns on last obelisk", "icon": "boss" },
+        { "text": "Kite mobs under his feet for AoE damage uptime" },
+        { "text": "TP back to town" },
+        { "text": "Talk to Renly, get Runed Spikes" },
+        { "text": "TP to Grelwood" },
+        { "text": "Activate 3 Runic Seals (in Grelwood)" },
+        { "text": "Talk to Una, TP back to town" },
+        { "text": "Talk to Una in town, TP to Grim Tangle" }
+      ]
+    },
+    {
+      "id": "grim-tangle",
+      "name": "Grim Tangle",
+      "level": "6",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Kill The Rotten Druid", "reward": "Support Gem", "icon": "boss", "optional": true },
+        { "text": "Enter Cemetery of the Eternals", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "cemetery",
+      "name": "Cemetery of the Eternals",
+      "level": "6-9",
+      "tags": [],
+      "steps": [
+        { "text": "Talk to Lachlann the Lost" },
+        { "text": "Sarcophagus near checkpoint", "reward": "Ring", "icon": "loot", "optional": true },
+        { "text": "Mausoleum of the Praetor → Draven → Key Piece, TP back", "icon": "boss", "note": "Doing Draven first keeps Asinia at higher level → better drops." },
+        { "text": "Mausoleum of the Praetor — Forgotten Riches hidden cache", "reward": "Support Gem 1 + Loot Gold", "icon": "loot", "optional": true },
+        { "text": "Tomb of the Consort → Asinia → Key Piece, TP back", "icon": "boss" },
+        { "text": "Open Memorial Gate next to Lachlann" },
+        { "text": "Kill Lachlann, loot Ring", "icon": "boss" },
+        { "text": "Exit to Hunting Grounds — take Waypoint" },
+        { "text": "TP to town, talk to Finn, Una, The Hooded One", "note": "The Hooded One revives upon return — Identify is now available." }
+      ]
+    },
+    {
+      "id": "hunting-grounds",
+      "name": "Hunting Grounds",
+      "level": "10",
+      "tags": ["waypoint", "skill-points"],
+      "newIn05": "Sparse zone now ships with navigation cues. After ritual encounter, follow trail of locusts → Freythorn entrance. Crowbells peck dead animals and leave blood trails to the boss. Signpost on the road indicates Ogham Village.",
+      "steps": [
+        { "text": "Talk to Delwyn" },
+        { "text": "Kill The Crowbell", "reward": "+2 Skill Points", "icon": "boss", "note": "Watch slam attacks — can one-shot. Boss flees at low HP, kite carefully." },
+        { "text": "Enter Freythorn → take WP → return", "icon": "portal" },
+        { "text": "Enter Ogham Farmlands → take WP → return", "icon": "portal" },
+        { "text": "Small ritual event near checkpoint", "reward": "Support Gem", "optional": true },
+        { "text": "League mech", "reward": "Exalted Orb", "optional": true },
+        { "text": "TP to Freythorn" }
+      ]
+    },
+    {
+      "id": "freythorn",
+      "name": "Freythorn",
+      "level": "11-12",
+      "tags": ["waypoint", "spirit-reward"],
+      "steps": [
+        { "text": "Activate 3 small Ritual Altars", "note": "Big altar's smoke tendrils point to the small altars — follow them." },
+        { "text": "Big Ritual Altar → kill The King in the Mists", "reward": "+30 Spirit", "icon": "boss", "note": "Phase 2: dodge totem summons + curses." },
+        { "text": "TP to Ogham Farmlands" }
+      ]
+    },
+    {
+      "id": "ogham-farmlands",
+      "name": "Ogham Farmlands",
+      "level": "12",
+      "tags": ["waypoint", "skill-points"],
+      "steps": [
+        { "text": "Una's Lute Box in house near checkpoint → Una's Lute", "reward": "+2 Skill Points", "icon": "loot", "note": "Deliver to Una in town for the reward." },
+        { "text": "Rare dogs in crop circle", "reward": "Skill Gem Lv4", "icon": "gem", "optional": true },
+        { "text": "Enter Ogham Village", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "ogham-village",
+      "name": "Ogham Village",
+      "level": "12-13",
+      "tags": [],
+      "steps": [
+        { "text": "Smithing Tools in house", "reward": "Salvage Bench", "icon": "loot", "firstChar": true },
+        { "text": "Blacksmith's Chest same house", "reward": "Blank Rune + Artificer's Orb", "icon": "loot", "optional": true },
+        { "text": "Kill The Executioner", "icon": "boss" },
+        { "text": "Upstairs → Lever → talk to Leitis" },
+        { "text": "Enter The Manor Ramparts", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "manor-ramparts",
+      "name": "The Manor Ramparts",
+      "level": "13",
+      "tags": [],
+      "steps": [
+        { "text": "Rope on hanging man near checkpoint", "reward": "Support Gem", "icon": "loot", "optional": true },
+        { "text": "Confirm Lvl 10 flask + Lvl 11 chest piece before entering Manor — much safer", "icon": "audit" },
+        { "text": "Enter Ogham Manor", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "ogham-manor",
+      "name": "Ogham Manor",
+      "level": "13-14",
+      "tags": ["act-boss", "life-reward"],
+      "steps": [
+        { "text": "Kill Candlemass (1st floor)", "reward": "+20 Max Life", "icon": "boss", "note": "Usually after first walkway, sometimes earlier — drops Essence + double-res belt." },
+        { "text": "Downstairs → kill Geonor (Act Boss)", "icon": "boss", "note": "Phase 2: dodge roll under his sword. Frost bomb at start of Phase 2 chills him." },
+        { "text": "TP back to town" }
+      ]
+    },
+    {
+      "id": "act-end",
+      "name": "Clearfell Encampment (End of Act)",
+      "level": "14",
+      "tags": ["town", "act-end"],
+      "steps": [
+        { "text": "Talk to all NPCs" },
+        { "text": "Talk to The Hooded One → \"Follow the Beast's Trail\"" }
+      ]
+    }
+  ]
+}

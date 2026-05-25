@@ -1,0 +1,103 @@
+{
+  "act": 5,
+  "code": "interludes",
+  "title": "Interludes — Permanent Rewards",
+  "patch": "0.5",
+  "levelRange": "52-58",
+  "source": "https://domistae.github.io/poe2-leveling/poe2_interludes_guide.html",
+  "fetched": "2026-05-25",
+  "permanentRewards": [
+    "+8 Skill Points (cumulative)",
+    "+5% Maximum Life",
+    "+40 Spirit",
+    "Free Unique Item",
+    "Choice of 7 Boons (Orbala)",
+    "Maps / Endgame Unlock"
+  ],
+  "routingNotes": [
+    "Interludes are permanent reward zones — every reward is missable, do all three before maps.",
+    "Layouts persist between runs — once you know an interlude, alts can speedrun the rewards.",
+    "Total weapon-swap skill point target by end of interludes: ~24 points.",
+    "Orbala's 7 Boons (Khari Bazaar) can be swapped anytime by returning to the pillar.",
+    "Mount Kriar layouts and POIs are consistent — Elder Maddox always 10-11 o'clock, Doryani's Contingency far right.",
+    "0.5: monster density reduced specifically in Interludes — push, don't over-craft."
+  ],
+  "speedrunTips": [
+    "Don't over-craft in Interludes. Next gear bracket is T1 maps — save exalts for endgame.",
+    "Confirm Ascendancy is finalized before +2 SP completion turn-in.",
+    "0.5: Apex is now Arbiter of Divinity, not Arbiter of Ash."
+  ],
+  "zones": [
+    {
+      "id": "interlude-51",
+      "name": "Interlude 5.1 — Ogham, The Refuge",
+      "level": "52-53",
+      "tags": ["skill-points"],
+      "steps": [
+        { "text": "Travel to Holten (docks town) — talk to The Hooded One" },
+        { "text": "Visit Soul of the Ferryman (docks)", "reward": "Greater Runes ~2000g (cheap)", "icon": "vendor", "optional": true },
+        { "text": "Progress through Wolvenhold after Holten" },
+        { "text": "Slay Oswin, the Dread Warden", "reward": "+2 Skill Points", "icon": "boss" },
+        { "text": "Complete interlude 5.1, return to town for next interlude" }
+      ]
+    },
+    {
+      "id": "interlude-52",
+      "name": "Interlude 5.2 — Khari Bazaar",
+      "level": "54-55",
+      "tags": ["skill-points", "life-reward", "boons"],
+      "steps": [
+        { "text": "Travel to Khari Crossing via Hooded One" },
+        { "text": "Slay Akthi & Anundr (Worm + Scorpion) — talk to Risu after", "reward": "+2 Skill Points", "icon": "boss" },
+        { "text": "Torbek (Khari Crossing) — discount rare caster weapons", "icon": "vendor", "optional": true },
+        { "text": "Enter Skullmaw Stairway via Khari Crossing", "icon": "portal" },
+        { "text": "Activate Molten One's Gift — find seals, reset instance if bugged", "reward": "+5% Maximum Life" },
+        { "text": "Travel to Qimah" },
+        { "text": "Use Orbala's Pillar — pick 1 of 7 Boons (swap anytime)", "reward": "Permanent Boon" },
+        { "text": "Qimah Reservoir Sacred Wells", "reward": "Currency (Exalt/Alchemy via Vials)", "optional": true },
+        { "text": "Enter Sel Khari Sanctuary", "icon": "portal" },
+        { "text": "Place Baryas of Rageen & Yoon on pedestals", "reward": "Rare Ring/Amulet/Jewel" },
+        { "text": "Complete interlude 5.2, return to town" }
+      ]
+    },
+    {
+      "id": "interlude-53",
+      "name": "Interlude 5.3 — Mount Kriar, The Glade",
+      "level": "55-58",
+      "tags": ["skill-points", "spirit-reward", "vaal-beacons"],
+      "newIn05": "Second beacon set (Fate of the Vaal) is scattered across the Interludes. Opens portal to advance the storyline.",
+      "steps": [
+        { "text": "Travel to Mount Kriar via Hooded One" },
+        { "text": "Enter Ashen Forest", "icon": "portal" },
+        { "text": "Find Ancient Monument in Ashen Forest", "reward": "Skill Gem Lv14", "icon": "loot" },
+        { "text": "Travel to Kriar Village" },
+        { "text": "Slay Lythara, the Wayward Spear", "reward": "+40 Spirit, Spirit Gem Lv14 + Gemcrust Skull", "icon": "boss" },
+        { "text": "Travel to Glacial Tarn → enter Howling Caves" },
+        { "text": "Slay The Abominable Yeti (drops Icy Tusks)", "reward": "+2 Skill Points", "icon": "boss" },
+        { "text": "Travel to Kriar Peaks" },
+        { "text": "Find Elder Maddox (10-11 o'clock position)", "reward": "Free Unique Item", "icon": "loot" },
+        { "text": "Travel far right to Doryani's Contingency", "reward": "Titan Rock Catafract (unique chest)", "icon": "loot", "optional": true },
+        { "text": "Find & energise the second set of 6 Ancient Beacons (scattered across Interludes) → Energised Crystals" },
+        { "text": "Open portal to advance the Fate of the Vaal storyline" }
+      ]
+    },
+    {
+      "id": "completion",
+      "name": "Completion",
+      "level": "58",
+      "tags": ["skill-points", "act-end"],
+      "steps": [
+        { "text": "Talk to The Hooded One after all 3 interludes", "reward": "+2 Skill Points (final)" }
+      ]
+    },
+    {
+      "id": "maps",
+      "name": "Maps / Endgame",
+      "level": "58-60",
+      "tags": ["endgame"],
+      "steps": [
+        { "text": "Endgame Atlas / Maps unlock at Lvl 58-60" }
+      ]
+    }
+  ]
+}

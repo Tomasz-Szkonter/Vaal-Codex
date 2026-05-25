@@ -1,0 +1,242 @@
+{
+  "act": 4,
+  "code": "act-4",
+  "title": "Act IV — Wraeclast Awakens (Kingsmarch & The Four Islands)",
+  "patch": "0.5",
+  "levelRange": "42-52",
+  "source": "https://domistae.github.io/poe2-leveling/poe2_act4_guide.html",
+  "fetched": "2026-05-25",
+  "permanentRewards": [
+    "+8 Weapon Set Skill Points",
+    "+5% Max Mana",
+    "+1 Tattoo Slot (Halls)",
+    "Hideout + Trading (Ange)",
+    "Endgame Map Access",
+    "Omniphobia +2 SP"
+  ],
+  "routingNotes": [
+    "Weapon Fragments and Matiki are randomized across the four islands each league — Kingsmarch dialogue tells you which.",
+    "Magma Twins (Volcanic Warrens) — kill order matters: Lightning first → Ruby Ring; Fire first → Topaz Ring.",
+    "Mimok the Enslaved (Isle of Kin) drops a guaranteed Tier 4 Support Gem.",
+    "Halls of the Dead tattoo: pick +5% Fire/Cold/Lightning Resistance for most builds.",
+    "Eye of Hinekora — hidden chest behind waterfall = Skill Gem Lv12 + Spirit Gem Lv12.",
+    "Blind Beast (Isle of Kin) drops Greater Blank Rune in 0.4 (skill points moved to Omniphobia in 0.5).",
+    "0.5: Greater Orbs of Transmutation / Augmentation can now drop in Act 4 (min mod level 55 → 44).",
+    "0.5: monster density reduced in back half — Act 4 is comparatively XP-rich, but pace tightens overall."
+  ],
+  "speedrunTips": [
+    "Pre-organize stash on Standard before league start — tab names/layouts/highlights carry over.",
+    "Save artificers / runes / whetstones for your weapon at end of Act 4 once carrying into Interludes/Maps.",
+    "Aim for ~5 hours campaign without layout study — urgency + magic-pack focus + breakpoint crafting."
+  ],
+  "zones": [
+    {
+      "id": "kingsmarch",
+      "name": "Kingsmarch (Hub)",
+      "level": "42",
+      "tags": ["town"],
+      "steps": [
+        { "text": "Talk to Doryani" },
+        { "text": "Continue to town, talk to Alva (with Rog)" },
+        { "text": "Talk to Rog in house — boat charter" },
+        { "text": "Talk to Farrow → accept Quest 4", "reward": "Unlocks 13 Ancient Runes via Remnants", "icon": "vendor", "newIn05": true },
+        { "text": "Talk to Makoru on ship, choose destination" }
+      ]
+    },
+    {
+      "id": "whakapanu",
+      "name": "Whakapanu Island",
+      "level": "42-43",
+      "tags": ["island", "frag-or-matiki"],
+      "steps": [
+        { "text": "Petrified Pirate on coast", "reward": "Torn Map 2/4", "icon": "loot", "optional": true },
+        { "text": "Shark Pit: Great White One", "reward": "Shark Fin", "icon": "boss", "optional": true },
+        { "text": "Crabshell Cavern: Clawcrunch", "reward": "Support Gem 4", "icon": "gem", "optional": true },
+        { "text": "Enter Singing Caverns", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "singing-caverns",
+      "name": "Singing Caverns",
+      "level": "43",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Beckoning Clam → Humming Pearl (give to Rog)", "icon": "loot", "optional": true },
+        { "text": "Kill Diamora, Song of Death", "reward": "Fragment?", "icon": "boss" },
+        { "text": "Talk to Hooded One, TP to town" }
+      ]
+    },
+    {
+      "id": "kingsmarch-hideout",
+      "name": "Kingsmarch — Hideout",
+      "level": "43",
+      "tags": ["town"],
+      "steps": [
+        { "text": "Talk to Ange → Shoreline Hideout" },
+        { "text": "Clear hideout, talk to Ange", "reward": "Hideout + Trading" }
+      ]
+    },
+    {
+      "id": "shrike",
+      "name": "Shrike Island",
+      "level": "43-44",
+      "tags": ["island", "frag-or-matiki"],
+      "steps": [
+        { "text": "Corpse Nest (Impaled Karui)", "reward": "Torn Map 4/4", "icon": "loot", "optional": true },
+        { "text": "Kill Scourge of the Skies", "reward": "Fragment?", "icon": "boss" },
+        { "text": "Talk to Hooded One, TP, sail next" }
+      ]
+    },
+    {
+      "id": "abandoned-prison",
+      "name": "Abandoned Prison",
+      "level": "44",
+      "tags": ["waypoint", "frag-or-matiki"],
+      "steps": [
+        { "text": "Kill mobs until Chapel Key drops" },
+        { "text": "Open Chapel, kill Forael, use Goddess of Justice", "reward": "Flask choice", "icon": "boss" },
+        { "text": "Enter Solitary Confinement", "icon": "portal" },
+        { "text": "Kill The Prisoner", "reward": "Fragment?", "icon": "boss" },
+        { "text": "Talk to Hooded One, sail to Isle of Kin" }
+      ]
+    },
+    {
+      "id": "isle-of-kin",
+      "name": "Isle of Kin",
+      "level": "45",
+      "tags": ["island", "matiki"],
+      "steps": [
+        { "text": "Flayed Sailor near shore", "reward": "Torn Map 3/4", "icon": "loot", "optional": true },
+        { "text": "Beast Pen", "reward": "Skill + Support Gem", "icon": "gem", "optional": true },
+        { "text": "Kill Mimok the Enslaved", "reward": "Tier 4 Support Gem", "icon": "boss" },
+        { "text": "Primal Arena: Blind Beast", "reward": "Greater Blank Rune (0.4)", "icon": "boss", "optional": true },
+        { "text": "Enter Volcanic Warrens", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "volcanic-warrens",
+      "name": "Volcanic Warrens",
+      "level": "45-46",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Volcanic Nest: Magma Twins — kill Lightning first", "reward": "Ruby Ring", "icon": "boss", "optional": true },
+        { "text": "(Alt) Magma Twins — kill Fire first", "reward": "Topaz Ring", "icon": "boss", "optional": true },
+        { "text": "Kill Krutog, Lord of Kin", "icon": "boss" },
+        { "text": "Click cage, free Matiki" },
+        { "text": "TP to Kingsmarch" }
+      ]
+    },
+    {
+      "id": "eye-of-hinekora",
+      "name": "Eye of Hinekora",
+      "level": "46-47",
+      "tags": ["waypoint", "mana-reward"],
+      "steps": [
+        { "text": "Talk to Matiki in town, click well" },
+        { "text": "Chest behind waterfall", "reward": "Skill Gem 12 + Spirit Gem 12", "icon": "loot", "optional": true },
+        { "text": "Complete 3 Tests: Fire, Nature, Cold" },
+        { "text": "Silent Hall altar (Pay Respects), talk to Navali", "reward": "+5% Max Mana" },
+        { "text": "Enter Halls of the Dead", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "halls-of-the-dead",
+      "name": "Halls of the Dead",
+      "level": "47",
+      "tags": [],
+      "steps": [
+        { "text": "Trial of Ngakanu (3 tests in clover-leaf), loot Blank Tattoos" },
+        { "text": "Fight Yama the White (low life pool — easy stun)", "icon": "boss" },
+        { "text": "Enter Trial of Ancestors", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "trial-of-ancestors",
+      "name": "Trial of the Ancestors",
+      "level": "47-48",
+      "tags": ["skill-points", "tattoo-choice"],
+      "steps": [
+        { "text": "Talk to Hinekora", "reward": "+2 Skill Points" },
+        { "text": "Choose tattoo: +5% Fire/Cold/Lightning Res (recommended) or +5 Str/Dex/Int", "icon": "warning" },
+        { "text": "TP, sail to Kedge Bay" }
+      ]
+    },
+    {
+      "id": "kedge-bay",
+      "name": "Kedge Bay",
+      "level": "47-48",
+      "tags": ["waypoint", "map"],
+      "steps": [
+        { "text": "Dead Man's Chest / Smuggler's Stash", "reward": "Torn Map 1/4", "icon": "loot", "optional": true },
+        { "text": "Enter Journey's End", "icon": "portal" }
+      ]
+    },
+    {
+      "id": "journeys-end",
+      "name": "Journey's End",
+      "level": "48-49",
+      "tags": ["waypoint", "skill-points"],
+      "steps": [
+        { "text": "Talk to Tujen" },
+        { "text": "Kill Captain Harlin, loot Verisium", "icon": "boss" },
+        { "text": "TP start, talk to Freya Hartlin" },
+        { "text": "Town → Dannig → Verisium Spikes" },
+        { "text": "Back to Journey's End → Freya" },
+        { "text": "Totem → kill Omniphobia", "reward": "+2 Skill Points", "icon": "boss" },
+        { "text": "Talk to Tujen in town for reward" }
+      ]
+    },
+    {
+      "id": "plunders-point",
+      "name": "Plunder's Point (Optional)",
+      "level": "49",
+      "tags": ["optional"],
+      "newIn05": "Cannot be entered until you have turned in all 4 Map Pieces at Kingsmarch (Torn Maps from Whakapanu, Shrike, Isle of Kin, Kedge Bay).",
+      "steps": [
+        { "text": "Give 4 maps to Makoru → sail → Dannig → Expedition", "optional": true }
+      ]
+    },
+    {
+      "id": "arastas",
+      "name": "Arastas",
+      "level": "49-50",
+      "tags": ["waypoint"],
+      "steps": [
+        { "text": "Missionari Lorandis → follow → destroy shield" },
+        { "text": "Evening/Morning Bells", "reward": "3 Regal each", "optional": true },
+        { "text": "Kill Torvian → enter Excavation", "icon": "boss" }
+      ]
+    },
+    {
+      "id": "excavation",
+      "name": "The Excavation",
+      "level": "50-51",
+      "tags": [],
+      "steps": [
+        { "text": "Kill Benedictus, talk to Hooded One", "icon": "boss" },
+        { "text": "Sail to Ngakanu" }
+      ]
+    },
+    {
+      "id": "ngakanu",
+      "name": "Ngakanu → Heart of the Tribe",
+      "level": "51",
+      "tags": [],
+      "steps": [
+        { "text": "Navigate maze → Heart of the Tribe" },
+        { "text": "Kill Tavaki, talk to him", "icon": "boss" },
+        { "text": "TP town → Rhodri → sail to final" }
+      ]
+    },
+    {
+      "id": "finale",
+      "name": "Act 4 Finale",
+      "level": "52",
+      "tags": ["act-boss"],
+      "steps": [
+        { "text": "Kill Zarokh (Final Act 4 Boss)", "icon": "boss" },
+        { "text": "Return, talk to Hooded One → unlocks Interludes" }
+      ]
+    }
+  ]
+}
