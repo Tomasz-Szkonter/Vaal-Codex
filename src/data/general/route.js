@@ -39,15 +39,29 @@ function fileToSection(file) {
     const zoneId = `${sectionId}-z-${zone.id}`;
     const items = (zone.steps || []).map((step, idx) => stepToItem(step, zoneId, idx));
     const z = { id: zoneId, name: zone.name, items };
+    if (zone.level) z.level = zone.level;
+    if (Array.isArray(zone.tags) && zone.tags.length > 0) z.tags = zone.tags;
     if (zone.newIn05) z.intro = zone.newIn05;
     return z;
   });
-  return {
+  const section = {
     id: sectionId,
     title: file.title,
     intro: makeIntro(file),
     zones,
+    kind: 'route',
   };
+  if (Array.isArray(file.routingNotes) && file.routingNotes.length > 0) {
+    section.routingNotes = file.routingNotes;
+  }
+  if (Array.isArray(file.speedrunTips) && file.speedrunTips.length > 0) {
+    section.speedrunTips = file.speedrunTips;
+  }
+  if (file.patch05Notes) section.patch05Notes = file.patch05Notes;
+  if (file.source) section.source = file.source;
+  if (file.fetched) section.fetched = file.fetched;
+  if (file.levelRange) section.levelRange = file.levelRange;
+  return section;
 }
 
 export const generalRoute = [

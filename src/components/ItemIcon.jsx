@@ -11,15 +11,20 @@
 //   audit     - pre-boss gate check (res/life/MS targets)
 //   warning   - critical "do NOT" rule
 
+// `stripe` is a full Tailwind class string (not composed at runtime) so the JIT
+// compiler picks it up. Used as the left-border color of a checklist row so the
+// row's type is readable at a glance.
+// `hex` is the same hue at full opacity, used to build inline `linear-gradient`
+// backgrounds where Tailwind utilities can't reach (custom alpha + angle).
 const ICON_META = {
-  vendor: { label: 'Vendor', tone: 'text-sky-300/80' },
-  portal: { label: 'Portal / Talk', tone: 'text-violet-300/80' },
-  boss: { label: 'Boss', tone: 'text-red-300/80' },
-  gem: { label: 'Gem', tone: 'text-emerald-300/80' },
-  loot: { label: 'Loot / Unique', tone: 'text-amber-300/80' },
-  ascendancy: { label: 'Ascendancy / Trial', tone: 'text-fuchsia-300/80' },
-  audit: { label: 'Audit gate', tone: 'text-success' },
-  warning: { label: 'Warning', tone: 'text-orange-300' },
+  vendor:     { label: 'Vendor',              tone: 'text-sky-300/80',     stripe: 'border-l-sky-400/60',     hex: '#38bdf8' },
+  portal:     { label: 'Portal / Talk',       tone: 'text-violet-300/80',  stripe: 'border-l-violet-400/60',  hex: '#a78bfa' },
+  boss:       { label: 'Boss',                tone: 'text-red-300/80',     stripe: 'border-l-red-400/70',     hex: '#f87171' },
+  gem:        { label: 'Gem',                 tone: 'text-emerald-300/80', stripe: 'border-l-emerald-400/60', hex: '#34d399' },
+  loot:       { label: 'Loot / Unique',       tone: 'text-amber-300/80',   stripe: 'border-l-amber-400/60',   hex: '#fbbf24' },
+  ascendancy: { label: 'Ascendancy / Trial',  tone: 'text-fuchsia-300/80', stripe: 'border-l-fuchsia-400/60', hex: '#e879f9' },
+  audit:      { label: 'Audit gate',          tone: 'text-success',        stripe: 'border-l-success/70',     hex: '#7fa86e' },
+  warning:    { label: 'Warning',             tone: 'text-orange-300',     stripe: 'border-l-orange-400/70',  hex: '#fb923c' },
 };
 
 const PATHS = {

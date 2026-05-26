@@ -44,7 +44,7 @@ export default function UtilityPanel({ utility }) {
         onClick={() => setOpen(true)}
         aria-label="Open build utility"
         aria-expanded={open}
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-panel border border-r-0 border-gold/40 text-gold hover:bg-panel-2 px-1.5 py-3 rounded-l shadow-panel text-[10px] font-mono uppercase tracking-widest"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-panel border border-r-0 border-border text-body hover:bg-panel-2 px-1.5 py-3 rounded-l shadow-panel text-[10px] font-mono uppercase tracking-widest"
         style={{ writingMode: 'vertical-rl' }}
       >
         Utility
@@ -75,7 +75,7 @@ export default function UtilityPanel({ utility }) {
         >
           <header className="flex items-center justify-between px-5 py-4 border-b border-border">
             <div>
-              <h2 className="font-serif text-xl text-gold leading-tight">
+              <h2 className="font-serif font-semibold text-xl text-body leading-tight tracking-tight">
                 Build utility
               </h2>
               <p className="text-[11px] text-muted mt-0.5">
@@ -94,7 +94,7 @@ export default function UtilityPanel({ utility }) {
           <div className="flex-1 overflow-y-auto p-5 space-y-6">
             {regex.length > 0 && (
               <section>
-                <h3 className="font-serif text-xs uppercase tracking-widest text-gold/90 mb-1">
+                <h3 className="font-serif font-semibold text-xs uppercase tracking-widest text-body mb-1">
                   Vendor regex
                 </h3>
                 <p className="text-[11px] text-muted mb-3">
@@ -123,7 +123,7 @@ export default function UtilityPanel({ utility }) {
                             {len} ch
                           </span>
                         </div>
-                        <code className="block bg-bg/80 border border-border/60 rounded px-2 py-1.5 text-xs font-mono text-gold/90 break-all whitespace-pre-wrap select-all">
+                        <code className="block bg-bg/80 border border-border/60 rounded px-2 py-1.5 text-xs font-mono text-body break-all whitespace-pre-wrap select-all">
                           {entry.pattern}
                         </code>
                         {entry.notes && (
@@ -136,8 +136,8 @@ export default function UtilityPanel({ utility }) {
                             onClick={() => copy(entry.id, entry.pattern)}
                             className={`px-2 py-1 text-[11px] border rounded transition-colors ${
                               copiedId === entry.id
-                                ? 'border-gold/60 bg-gold/10 text-gold'
-                                : 'border-border text-muted hover:text-gold hover:border-gold/50'
+                                ? 'border-success/60 bg-success/10 text-success'
+                                : 'border-border text-muted hover:text-body hover:border-zinc-500'
                             }`}
                           >
                             {copiedId === entry.id ? 'Copied!' : 'Copy'}

@@ -66,6 +66,23 @@ export function useProgress(buildId) {
     [buildId]
   );
 
+  // Batched add/remove in a single write — used by per-zone check-all.
+  // `add` keys get set to true; `remove` keys get deleted (also used to clear
+  // legacy alias keys when unchecking a whole zone).
+  const setMany = useCallback(
+    ({ add = [], remove = [] } = {}) => {
+      if (add.length === 0 && remove.length === 0) return;
+      setState((prev) => {
+        const next = { ...prev };
+        for (const k of remove) delete next[k];
+        for (const k of add) next[k] = true;
+        write(buildId, next);
+        return next;
+      });
+    },
+    [buildId]
+  );
+
   const reset = useCallback(() => {
     write(buildId, {});
     setState({});
@@ -85,7 +102,7 @@ export function useProgress(buildId) {
     [buildId]
   );
 
-  return { state, toggle, set, reset, importState };
+  return { state, toggle, set, setMany, reset, importState };
 }
 
 // Standalone read for the Home grid — returns the raw progress object so the

@@ -18,6 +18,36 @@ export default {
       "Cold-conversion projectile build. League-start friendly. Squishy early, scales hard once Mhacha's Gift comes online.",
   },
 
+  // BUILD-tab info — placeholders for now. Real prose lands when we backfill
+  // this build to match the explosive-witchhunter shape. The fields exist so
+  // the future BUILD-tab UI renders cleanly for every build.
+  info: {
+    author: null,
+    sources: [],
+    blocks: [
+      {
+        id: 'overview',
+        title: 'Build overview',
+        body: 'TODO: write the elevator pitch (cold-conversion projectile, league-start friendly, Mhacha’s Gift spike).',
+      },
+      {
+        id: 'main-skills',
+        title: 'Main skills',
+        body: 'TODO: distill from the skill-gem section below (Twister, Whirling Slash, Frost Bomb, Barrage, Ice-Tipped Arrows, Parry, Freezing Mark, War Banner).',
+      },
+      {
+        id: 'main-mechanics',
+        title: 'Main mechanics',
+        body: 'TODO: cold conversion, chill/freeze loops, projectile shotgunning, spear breakpoints.',
+      },
+      {
+        id: 'general-tips',
+        title: 'General league-start tips',
+        body: 'TODO: weapon-swap binds, attribute distribution, Sapphire Ring before Geonor, etc.',
+      },
+    ],
+  },
+
   // Utility — surfaced in the slide-out panel on the build page. Not part of
   // the checklist (no progress tracking); these are reference strings the user
   // pastes into the in-game vendor search bar (250-char limit in 0.5).

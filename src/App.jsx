@@ -8,7 +8,7 @@ export default function App() {
       <header className="border-b border-border bg-panel/60 backdrop-blur sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-baseline gap-2 group">
-            <span className="font-serif text-2xl text-gold tracking-wide group-hover:text-gold-bright transition-colors">
+            <span className="font-serif font-bold text-2xl text-body tracking-tight group-hover:text-white transition-colors">
               Vaal Codex
             </span>
             <span className="text-xs text-muted hidden sm:inline">
@@ -20,7 +20,7 @@ export default function App() {
               to="/"
               className={({ isActive }) =>
                 `px-2 py-1 rounded transition-colors ${
-                  isActive ? 'text-gold' : 'text-muted hover:text-body'
+                  isActive ? 'text-body' : 'text-muted hover:text-body'
                 }`
               }
               end
@@ -40,7 +40,7 @@ export default function App() {
             element={
               <div className="max-w-6xl mx-auto px-4 py-16 text-center text-muted">
                 Not found.{' '}
-                <Link to="/" className="text-gold hover:text-gold-bright">
+                <Link to="/" className="text-body hover:text-white">
                   Back to builds
                 </Link>
               </div>

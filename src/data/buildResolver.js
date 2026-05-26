@@ -126,15 +126,41 @@ function partitionBuildSections(buildSections = []) {
   return { before, after };
 }
 
+// Synthesize a kind='info' section from build.info so the BUILD tab flows
+// through the existing chapter / section / sidebar pipeline. The synthesized
+// section has zero items (so it doesn't contribute to progress totals) but
+// exposes its blocks as zone-shaped entries — that lets the sidebar's
+// scroll-spy and sub-nav target each block anchor for free.
+function infoToSection(info) {
+  const blocks = Array.isArray(info.blocks) ? info.blocks : [];
+  return {
+    id: 'build-info',
+    kind: 'info',
+    title: 'Build',
+    author: info.author || null,
+    sources: Array.isArray(info.sources) ? info.sources : [],
+    blocks,
+    zones: blocks.map((b) => ({ id: b.id, name: b.title, items: [] })),
+  };
+}
+
 export function resolveBuild(build) {
   if (!build) return null;
   const { before, after } = partitionBuildSections(build.buildSections);
   const route = generalRoute.map((section) =>
     applyOverlay(section, build.routeOverlay)
   );
+  const infoSection = build.info ? infoToSection(build.info) : null;
+  const sections = [
+    ...(infoSection ? [infoSection] : []),
+    ...before,
+    ...route,
+    ...after,
+  ];
   return {
     meta: build.meta,
-    sections: [...before, ...route, ...after],
+    sections,
     utility: build.utility || null,
+    info: build.info || null,
   };
 }

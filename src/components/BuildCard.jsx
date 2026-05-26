@@ -14,11 +14,11 @@ export default function BuildCard({ build }) {
   return (
     <Link
       to={`/build/${meta.id}`}
-      className="group block bg-panel border border-border hover:border-gold/60 rounded-lg p-5 transition-all shadow-panel hover:-translate-y-0.5"
+      className="group block bg-panel border border-border hover:border-zinc-500 rounded-lg p-5 transition-all shadow-panel hover:-translate-y-0.5"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="font-serif text-xl text-gold group-hover:text-gold-bright">
+          <h3 className="font-serif font-semibold text-xl text-body group-hover:text-white tracking-tight">
             {meta.name}
           </h3>
           <p className="text-sm text-muted mt-0.5">
@@ -58,7 +58,7 @@ export default function BuildCard({ build }) {
             </div>
             <div className="h-1.5 bg-panel-2 rounded overflow-hidden">
               <div
-                className="h-full bg-gold transition-all"
+                className={`h-full transition-all ${pct === 100 ? 'bg-success/70' : 'bg-zinc-400/70'}`}
                 style={{ width: `${pct}%` }}
               />
             </div>

@@ -1,34 +1,41 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { getSectionItems, isItemChecked } from '../data/helpers.js';
 
-// Sticky left-rail navigation with scroll-spy.
+// Sticky left-rail navigation with scroll-spy, scoped to the active chapter.
 //
-// Observes section and zone anchors and highlights whichever is closest to the
-// top of the viewport. Collapses to a hamburger drawer below md.
-export default function Sidebar({ build, progress }) {
+// Observes section and zone anchors *within the active chapter* and highlights
+// whichever is closest to the top of the viewport. Cross-chapter navigation
+// happens via the tab strip above; the sidebar deliberately doesn't list
+// other chapters' sections so the rail stays short.
+//
+// Collapses to a hamburger drawer below lg.
+export default function Sidebar({ build, progress, activeChapter }) {
   const [activeId, setActiveId] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Per-section expand/collapse. Re-seeded (all expanded) when the build
-  // changes so navigating between builds doesn't carry stale state.
+  const sections = activeChapter?.sections || [];
+
+  // Per-section expand/collapse. Re-seeded (all expanded) whenever the active
+  // chapter changes so switching tabs gives a fresh, fully-open rail.
   const [expanded, setExpanded] = useState(() =>
-    Object.fromEntries(build.sections.map((s) => [s.id, true]))
+    Object.fromEntries(sections.map((s) => [s.id, true]))
   );
   useEffect(() => {
-    setExpanded(Object.fromEntries(build.sections.map((s) => [s.id, true])));
-  }, [build.meta?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    setExpanded(Object.fromEntries(sections.map((s) => [s.id, true])));
+  }, [activeChapter?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Flat list of all anchor IDs we want to track (sections + their zones).
+  // Flat list of all anchor IDs we want to track (sections + their zones)
+  // for the active chapter only.
   const observedIds = useMemo(() => {
     const ids = [];
-    for (const section of build.sections) {
+    for (const section of sections) {
       ids.push(section.id);
       if (Array.isArray(section.zones)) {
         for (const zone of section.zones) ids.push(zone.id);
       }
     }
     return ids;
-  }, [build]);
+  }, [sections]);
 
   // Scroll-spy: keep a live map of which observed nodes are currently visible,
   // pick the one nearest the top of the viewport.
@@ -47,7 +54,6 @@ export default function Sidebar({ build, progress }) {
           }
         }
         if (visibleRef.current.size === 0) return;
-        // Pick the one whose top is closest to (but at/below) the header.
         let bestId = null;
         let bestTop = Infinity;
         for (const [id, top] of visibleRef.current.entries()) {
@@ -59,7 +65,6 @@ export default function Sidebar({ build, progress }) {
         if (bestId) setActiveId(bestId);
       },
       {
-        // Header is ~64px; bias the "active" band to the top third.
         rootMargin: '-80px 0px -65% 0px',
         threshold: [0, 1],
       }
@@ -73,21 +78,17 @@ export default function Sidebar({ build, progress }) {
     return () => observer.disconnect();
   }, [observedIds]);
 
-  // Which section is the active zone inside? Used to keep the parent
-  // highlighted even when a child zone is the most-active node.
   const activeSectionId = useMemo(() => {
     if (!activeId) return null;
-    for (const section of build.sections) {
+    for (const section of sections) {
       if (section.id === activeId) return section.id;
       if (Array.isArray(section.zones)) {
         if (section.zones.some((z) => z.id === activeId)) return section.id;
       }
     }
     return null;
-  }, [activeId, build]);
+  }, [activeId, sections]);
 
-  // sectionId is the containing section to auto-expand when jumping to a zone.
-  // When jumping to a section header itself, pass its own id.
   const onJump = (id, sectionId) => (e) => {
     e.preventDefault();
     setDrawerOpen(false);
@@ -97,7 +98,6 @@ export default function Sidebar({ build, progress }) {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Mirror navigation in the URL so back-button works.
       history.replaceState(null, '', `#${id}`);
     }
   };
@@ -109,107 +109,111 @@ export default function Sidebar({ build, progress }) {
   };
 
   const Nav = (
-    <nav aria-label="Build navigation" className="text-sm">
+    <nav aria-label="Chapter navigation" className="text-sm">
       <div className="text-[10px] uppercase tracking-widest text-muted mb-3 px-1">
-        Sections
+        {activeChapter?.label || 'Sections'}
       </div>
-      <ol className="space-y-3">
-        {build.sections.map((section) => {
-          const items = getSectionItems(section);
-          const total = items.length;
-          const done = items.filter((i) => isItemChecked(i, progress)).length;
-          const sectionActive = activeSectionId === section.id;
-          const sectionAllDone = total > 0 && done === total;
+      {sections.length === 0 ? (
+        <p className="text-xs text-muted px-1">Nothing to show in this tab.</p>
+      ) : (
+        <ol className="space-y-3">
+          {sections.map((section) => {
+            const items = getSectionItems(section);
+            const total = items.length;
+            const done = items.filter((i) => isItemChecked(i, progress)).length;
+            const sectionActive = activeSectionId === section.id;
+            const sectionAllDone = total > 0 && done === total;
 
-          const hasZones = Array.isArray(section.zones) && section.zones.length > 0;
-          const isOpen = !!expanded[section.id];
+            const hasZones = Array.isArray(section.zones) && section.zones.length > 0;
+            const isOpen = !!expanded[section.id];
 
-          return (
-            <li key={section.id}>
-              <div className="flex items-baseline gap-1">
-                {hasZones ? (
-                  <button
-                    type="button"
-                    onClick={onToggleExpand(section.id)}
-                    aria-expanded={isOpen}
-                    aria-label={isOpen ? 'Collapse section' : 'Expand section'}
-                    className="shrink-0 w-4 h-4 grid place-content-center text-muted hover:text-gold rounded -ml-1"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-90' : ''}`}
-                      aria-hidden="true"
+            return (
+              <li key={section.id}>
+                <div className="flex items-baseline gap-1">
+                  {hasZones ? (
+                    <button
+                      type="button"
+                      onClick={onToggleExpand(section.id)}
+                      aria-expanded={isOpen}
+                      aria-label={isOpen ? 'Collapse section' : 'Expand section'}
+                      className="shrink-0 w-4 h-4 grid place-content-center text-muted hover:text-body rounded -ml-1"
                     >
-                      <polyline points="9 6 15 12 9 18" />
-                    </svg>
-                  </button>
-                ) : (
-                  <span className="shrink-0 w-4 h-4" aria-hidden="true" />
-                )}
-                <a
-                  href={`#${section.id}`}
-                  onClick={onJump(section.id, section.id)}
-                  className={`flex-1 min-w-0 flex items-baseline justify-between gap-2 px-1 py-0.5 rounded transition-colors ${
-                    sectionActive
-                      ? 'text-gold-bright'
-                      : sectionAllDone
-                      ? 'text-gold/40'
-                      : 'text-body/85 hover:text-gold'
-                  }`}
-                >
-                  <span
-                    className={`truncate ${
-                      sectionActive ? 'font-medium' : ''
-                    } ${sectionAllDone ? 'line-through decoration-gold/30' : ''}`}
-                  >
-                    {section.title}
-                  </span>
-                  {total > 0 && (
-                    <span className="text-[10px] font-mono text-muted shrink-0">
-                      {done}/{total}
-                    </span>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-90' : ''}`}
+                        aria-hidden="true"
+                      >
+                        <polyline points="9 6 15 12 9 18" />
+                      </svg>
+                    </button>
+                  ) : (
+                    <span className="shrink-0 w-4 h-4" aria-hidden="true" />
                   )}
-                </a>
-              </div>
+                  <a
+                    href={`#${section.id}`}
+                    onClick={onJump(section.id, section.id)}
+                    className={`flex-1 min-w-0 flex items-baseline justify-between gap-2 px-1 py-0.5 rounded transition-colors ${
+                      sectionActive
+                        ? 'text-white'
+                        : sectionAllDone
+                        ? 'text-muted/60'
+                        : 'text-body/85 hover:text-white'
+                    }`}
+                  >
+                    <span
+                      className={`truncate ${
+                        sectionActive ? 'font-medium' : ''
+                      } ${sectionAllDone ? 'line-through decoration-muted/40' : ''}`}
+                    >
+                      {section.title}
+                    </span>
+                    {total > 0 && (
+                      <span className="text-[10px] font-mono text-muted shrink-0">
+                        {done}/{total}
+                      </span>
+                    )}
+                  </a>
+                </div>
 
-              {hasZones && isOpen && (
-                <ul className="mt-1 ml-4 border-l border-border/60 pl-2 space-y-0.5">
-                  {section.zones.map((zone) => {
-                    const zItems = zone.items || [];
-                    const zDone = zItems.filter((i) => isItemChecked(i, progress)).length;
-                    const zTotal = zItems.length;
-                    const zAllDone = zTotal > 0 && zDone === zTotal;
-                    const zActive = activeId === zone.id;
+                {hasZones && isOpen && (
+                  <ul className="mt-1 ml-4 border-l border-border/60 pl-2 space-y-0.5">
+                    {section.zones.map((zone) => {
+                      const zItems = zone.items || [];
+                      const zDone = zItems.filter((i) => isItemChecked(i, progress)).length;
+                      const zTotal = zItems.length;
+                      const zAllDone = zTotal > 0 && zDone === zTotal;
+                      const zActive = activeId === zone.id;
 
-                    return (
-                      <li key={zone.id}>
-                        <a
-                          href={`#${zone.id}`}
-                          onClick={onJump(zone.id, section.id)}
-                          className={`block px-1 py-0.5 rounded text-xs transition-colors truncate ${
-                            zActive
-                              ? 'text-gold-bright bg-panel-2/60'
-                              : zAllDone
-                              ? 'text-gold/30 line-through decoration-gold/30'
-                              : 'text-muted hover:text-gold hover:bg-panel-2/40'
-                          }`}
-                        >
-                          {zone.name}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
-            </li>
-          );
-        })}
-      </ol>
+                      return (
+                        <li key={zone.id}>
+                          <a
+                            href={`#${zone.id}`}
+                            onClick={onJump(zone.id, section.id)}
+                            className={`block px-1 py-0.5 rounded text-xs transition-colors truncate ${
+                              zActive
+                                ? 'text-white bg-panel-2/60'
+                                : zAllDone
+                                ? 'text-muted/50 line-through decoration-muted/40'
+                                : 'text-muted hover:text-body hover:bg-panel-2/40'
+                            }`}
+                          >
+                            {zone.name}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      )}
     </nav>
   );
 
@@ -219,7 +223,7 @@ export default function Sidebar({ build, progress }) {
       <button
         type="button"
         onClick={() => setDrawerOpen(true)}
-        className="lg:hidden fixed bottom-4 right-4 z-30 bg-panel border border-gold/40 text-gold px-3 py-2 rounded-full shadow-panel text-xs font-mono uppercase tracking-wider"
+        className="lg:hidden fixed bottom-4 right-4 z-30 bg-panel border border-border text-body px-3 py-2 rounded-full shadow-panel text-xs font-mono uppercase tracking-wider"
         aria-label="Open navigation"
       >
         Nav
@@ -236,7 +240,7 @@ export default function Sidebar({ build, progress }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="font-serif text-lg text-gold">{build.meta?.name}</span>
+              <span className="font-serif font-semibold text-lg text-body tracking-tight">{build.meta?.name}</span>
               <button
                 onClick={() => setDrawerOpen(false)}
                 className="text-muted hover:text-body text-xl leading-none"
